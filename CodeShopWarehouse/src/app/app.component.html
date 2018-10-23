@@ -1,6 +1,8 @@
 <button (click)="createOrder()">Create Order</button>
-<ul *ngIf="orders">
-  <li *ngFor="let order of orders">
-    <button (click)="processOrder(order)">{{order.id}} &nbsp; Process Order</button>
-  </li>
+<input type="number" placeholder="Enter product Id to filter by." [(ngModel)]="productIdFilterInput" (change)="filterOrders()">
+<ul *ngIf="filteredOrders">
+	<li *ngFor="let order of filteredOrders">
+		Order #{{order.id}} &nbsp; Product Id:{{order.productId}} &nbsp;
+		<button type="button" (click)="processOrder(order)"> Process Order</button>
+	</li>
 </ul>
