@@ -18,6 +18,14 @@ export class AppComponent implements OnInit, OnDestroy {
 		});
 	}
 
+	createOrder(): void {
+		this.orderService.createOrder();
+	}
+
+	processOrder(order: Order): void {
+		this.orderService.processOrder(order);
+	}
+
 	ngOnInit(): void {
 		this.orderService.getAllOpenOrders();
 	}
